@@ -1,0 +1,27 @@
+
+{% extends "layout.html" %}
+
+{% block js %}
+<script type="text/javascript">
+$(document).ready(function() {
+
+});
+</script>
+{% endblock %}
+
+{% block content %}
+<div class="container-narrow">
+  <h1>Bulk Import</h1>
+    <br/>
+    <p> Some instructions on the columns needed.</p>
+    <form id="importForm" class="form " method="POST" action="" role="form">
+            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+            <div class="form-group">
+                {{form.data.label}}
+                {{form.data(placeholder="Type", class_="form-control",rows=30, cols=100)}}
+            </div>
+            <p><input class="btn btn-default btn-submit" type="submit" value="Submit"></p>
+    </form>
+</div>
+{% endblock %}
+

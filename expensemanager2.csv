@@ -1,0 +1,85 @@
+Date,trx_type,Amount,Category,Subcategory,Description,Payee/Payer,Account,account_type
+2016-04-01,income,0,,Initial Balance,Initial Balance,,"Cash, Stratos",cash
+2016-04-01,income,64.27,,Initial Balance,Initial Balance,,"Debit, Eurobank",debit
+2016-04-01,income,410.09,,Initial Balance,Initial Balance,,"Debit, Alpha",debit
+2016-04-01,income,618.71,,Initial Balance,Initial Balance,,"Debit, BBVA",debit
+2016-04-01,expense,-19.03,Utilities,Telephone,,,"Debit, BBVA",debit
+2016-04-01,expense,-55.23,Household,Groceries,,,"Debit, BBVA",debit
+2016-04-01,income,2836,,"Salary, PKH",,PKH,"Debit, Eurobank",debit
+2016-04-01,income,1037.06,,PKH Expenses,,PKH,"Debit, Eurobank",debit
+2016-04-04,transfer,-200,,,,,"Debit, Eurobank",debit
+2016-04-04,transfer,200,,,,,"Debit, BBVA",debit
+2016-04-04,transfer,-200,,,,,"Debit, Eurobank",debit
+2016-04-04,transfer,200,,,,,"Cash, Stratos",cash
+2016-04-04,transfer,-100,,,,,"Cash, Stratos",cash
+2016-04-04,transfer,100,,,,,"Cash, Arzu",cash
+2016-04-04,expense,-43.8,Food,Lunches,,Muerde la Pasta,"Debit, BBVA",debit
+2016-04-04,expense,-70.73,Utilities,Telephone,,,"Debit, BBVA",debit
+2016-04-04,expense,-1.45,Utilities,Banking Fees,,,"Debit, Eurobank",debit
+2016-04-05,expense,-189.41,Utilities,Electric,,,"Debit, BBVA",debit
+2016-04-05,expense,-11.09,Utilities,VOIP,,,"Debit, BBVA",debit
+2016-04-05,expense,-45.01,Auto,Gas,,,"Debit, BBVA",debit
+2016-04-05,expense,-557.65,Loans,Mortgage,,,"Debit, Eurobank",debit
+2016-04-06,expense,-54.45,Utilities,Water,,,"Debit, BBVA",debit
+2016-04-08,expense,-208.24,Utilities,Gas,,,"Debit, BBVA",debit
+2016-04-08,expense,-11.88,Utilities,Domain Names,strarzul.net,,"Debit, BBVA",debit
+2016-04-10,expense,-26,Entertainment,Bowling,,,"Cash, Stratos",cash
+2016-04-10,expense,-4.05,Auto,Parking,,,"Cash, Stratos",cash
+2016-04-10,expense,-15.25,Auto,Fuel,,Carrefour,"Debit, BBVA",debit
+2016-04-11,transfer,-400,,,,,"Debit, Eurobank",debit
+2016-04-11,transfer,400,,,,,"Cash, Arzu",cash
+2016-04-11,expense,-26.62,Household,Groceries,,DIA,"Debit, BBVA",debit
+2016-04-11,income,500,,Rent,,Mexton,"Debit, Alpha",debit
+2016-04-11,expense,-1.45,Utilities,Banking Fees,,,"Debit, Eurobank",debit
+2016-04-12,income,26.2,,Initial Balance,Initial Balance,,"Visa, Alpha",cc
+2016-04-13,transfer,-150,,,,,"Debit, Alpha",debit
+2016-04-13,transfer,150,,,,,"Cash, Stratos",cash
+2016-04-13,transfer,-250,,,,,"Debit, Alpha",debit
+2016-04-13,transfer,250,,,,,"Debit, BBVA",debit
+2016-04-13,transfer,-250,,,,,"Debit, Alpha",debit
+2016-04-13,transfer,250,,,,,"Debit, BBVA",debit
+2016-04-13,transfer,-150,,,,,"Debit, Alpha",debit
+2016-04-13,transfer,150,,,,,"Cash, Stratos",cash
+2016-04-13,income,0,,Initial Balance,Initial Balance,,"Cash, Arzu",cash
+2016-04-13,income,0,,Initial Balance,Initial Balance,,"Mastercard, Eurobank",cc
+2016-04-13,expense,-40,Classes,Spanish classes,for april,,"Cash, Stratos",cash
+2016-04-13,expense,-20,Food,Lunch ESA,,,"Cash, Stratos",cash
+2016-04-13,expense,-150,Classes,Swimming kids,,,"Debit, BBVA",debit
+2016-04-13,expense,-1.65,Utilities,Banking Fees,,,"Debit, Alpha",debit
+2016-04-16,expense,-53.98,Household,Groceries,,DIA,"Debit, BBVA",debit
+2016-04-16,expense,-1.4,Food,Breakfast,,,"Cash, Stratos",cash
+2016-04-17,expense,-35,Entertainment,Castilandia,,,"Cash, Stratos",cash
+2016-04-17,expense,-3.5,Food,Snack,,Castilandia,"Cash, Stratos",cash
+2016-04-18,expense,-3.98,Family,Toys,,Supercor,"Cash, Stratos",cash
+2016-04-18,expense,-3.75,Household,Groceries,,Supercor,"Cash, Stratos",cash
+2016-04-21,expense,-25.15,Health Care,Medicine,orion antibiotics,,"Cash, Stratos",cash
+2016-04-23,expense,-5.3,Household,Groceries,,DIA,"Cash, Stratos",cash
+2016-04-23,expense,-34.49,Household,Groceries,,DIA,"Debit, BBVA",debit
+2016-04-24,transfer,-50,,,,,"Debit, Alpha",debit
+2016-04-24,transfer,50,,,,,"Cash, Stratos",cash
+2016-04-24,transfer,-150,,,,,"Debit, Alpha",debit
+2016-04-24,transfer,150,,,,,"Cash, Arzu",cash
+2016-04-24,transfer,-200,,,,,"Debit, Alpha",debit
+2016-04-24,transfer,200,,,,,"Debit, BBVA",debit
+2016-04-24,expense,-5.7,Food,Snack,ice creams,,"Cash, Stratos",cash
+2016-04-24,expense,-11.2,Food,Breakfast,,100 montatitos,"Cash, Stratos",cash
+2016-04-25,expense,-20,Food,Lunch ESA,,,"Cash, Stratos",cash
+2016-04-25,expense,-18.77,Household,Groceries,,,"Debit, BBVA",debit
+2016-04-29,expense,-33.87,Household,Groceries,,DIA,"Debit, BBVA",debit
+2016-04-29,expense,-53.23,Auto,Gas,,Carrefour,"Debit, BBVA",debit
+2016-04-29,expense,-0.85,Food,Snack,,,"Cash, Stratos",cash
+2016-04-30,expense,-38.13,Household,Groceries,,DIA,"Debit, BBVA",debit
+2016-05-02,expense,-47.4,Food,Lunches,,Los Patricios,"Debit, BBVA",debit
+2016-05-06,expense,-20,Food,Lunch ESA,,,"Cash, Stratos",cash
+2016-05-07,expense,-31.73,Household,Groceries,,DIA,"Cash, Stratos",cash
+2016-05-07,expense,-12.7,Personal,Gift,,,"Cash, Stratos",cash
+2016-05-07,expense,-16.19,Family,Toys,spiderman lego car + ladybug ball,,"Cash, Stratos",cash
+2016-05-08,expense,-51.14,Auto,Gas,,Carrefour,"Cash, Stratos",cash
+2016-05-10,expense,-6.37,Household,Groceries,,DIA,"Cash, Stratos",cash
+2016-05-14,expense,-52.06,Household,Groceries,,DIA,"Cash, Stratos",cash
+2016-05-15,expense,-16.5,Food,Lunches,,100 montatitos,"Cash, Stratos",cash
+2016-05-18,expense,-50,Auto,Gas,,Carrefour,"Debit, BBVA",debit
+2016-05-20,expense,-15,Food,Lunch ESA,,,"Cash, Stratos",cash
+2016-05-21,expense,-5.92,Household,Groceries,,DIA,"Debit, BBVA",debit
+2016-05-21,expense,-34.9,Household,Groceries,,Supercor,"Debit, BBVA",debit
+2016-05-22,expense,-35.64,Household,Groceries,,DIA,"Debit, BBVA",debit

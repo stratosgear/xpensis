@@ -3,8 +3,9 @@
 from flask_wtf import Form
 from wtforms import  StringField, DateTimeField
 from wtforms.fields.core import DecimalField, SelectField
+from wtforms.fields.simple import TextAreaField
 from wtforms.validators import DataRequired, Length
-from wtforms.widgets.core import HTMLString, html_params
+from wtforms.widgets.core import HTMLString, html_params, TextArea
 
 
 class TransactionForm(Form):
@@ -32,6 +33,23 @@ class TransactionForm(Form):
     def validate(self):
         """Validate the form."""
         initial_validation = super(TransactionForm, self).validate()
+        if not initial_validation:
+            return False
+
+        return True
+
+class BulkImportForm(Form):
+    """Transaction form."""
+
+    data = TextAreaField()
+    
+    def __init__(self, *args, **kwargs):
+        """Create instance."""
+        super(BulkImportForm, self).__init__(*args, **kwargs)
+
+    def validate(self):
+        """Validate the form."""
+        initial_validation = super(BulkImportForm, self).validate()
         if not initial_validation:
             return False
 

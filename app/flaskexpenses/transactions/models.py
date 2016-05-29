@@ -6,11 +6,15 @@ from elasticsearch_dsl import DocType, String, Date, Boolean, Float
 
 
 class Trx(DocType):
-    type = String()
-    account = String()
-    created_date = Date()
+    type = String(index='not_analyzed')
     amount = Float()
+    account = String(index='not_analyzed')
+    account_type = String(index='not_analyzed')
+    description = String()
     trx_date = Date()
+    created_date = Date()
+    tags = String(index='not_analyzed', multi=True)
+    payee = String(index='not_analyzed')
     
     class Meta:
         index = 'flexpenses'
