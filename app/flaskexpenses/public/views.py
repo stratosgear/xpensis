@@ -31,7 +31,7 @@ def home():
             return redirect(redirect_url)
         else:
             flash_errors(form)
-    return render_template('transactions/home.html')
+    return render_template('public/home.html', form=form)
 
 
 @blueprint.route('/logout/')

@@ -42,5 +42,3 @@ Flask-DebugToolbar==0.10.0
 
 # Flask Admin
 Flask-Admin==1.4.0
-
-elasticsearch-dsl>=2.0.0,<3.0.0

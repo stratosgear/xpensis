@@ -15,12 +15,12 @@ kibana:
   links:
     - elasticsearch
 
-# app:
-#     build: app/
-#     volumes:
-#         - ./data/app/:/app-data
-#     ports:
-#         - "5544:5544"
-#     command: python2 /app/manage.py server
-#     links:
-#         - elasticsearch
+app:
+    build: app/
+    volumes:
+        - ./data/app/:/app-data
+    ports:
+        - "5544:5544"
+    command: python2 /app/manage.py server
+    links:
+        - elasticsearch

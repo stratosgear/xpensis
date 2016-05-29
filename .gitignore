@@ -43,8 +43,6 @@ docs/_build
 .webassets-cache
 
 # Virtualenvs
-venv/
+env/
 
 data/
-app/flaskexpenses/static/libs/
-

@@ -1,12 +1,10 @@
-#---!/usr/bin/env python
-#--- -*- coding: utf-8 -*-
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
 """Management script."""
-from glob import glob
 import os
+from glob import glob
 from subprocess import call
 
-from flask_admin import Admin
-from flask_admin.contrib.sqla import ModelView
 from flask_migrate import Migrate, MigrateCommand
 from flask_script import Command, Manager, Option, Server, Shell
 from flask_script.commands import Clean, ShowUrls
@@ -15,7 +13,8 @@ from flaskexpenses.app import create_app
 from flaskexpenses.database import db
 from flaskexpenses.settings import DevConfig, ProdConfig
 from flaskexpenses.user.models import User, Role
-
+from flask_admin import Admin
+from flask_admin.contrib.sqla import ModelView
 
 CONFIG = ProdConfig if os.environ.get(
     'FLASKEXPENSES_ENV') == 'prod' else DevConfig
@@ -25,11 +24,10 @@ TEST_PATH = os.path.join(HERE, 'tests')
 app = create_app(CONFIG)
 manager = Manager(app)
 migrate = Migrate(app, db)
-# admin = Admin(app, name='Expenses', template_mode='bootstrap3')
-# 
-# admin.add_view(ModelView(User, db.session, endpoint="user2"))
-# admin.add_view(ModelView(Role, db.session))
-# admin.add_view(ModelView(Trx, db.session, endpoint='transaction'))
+admin = Admin(app, name='Expenses', template_mode='bootstrap3')
+
+admin.add_view(ModelView(User, db.session, endpoint="user2"))
+admin.add_view(ModelView(Role, db.session)
 
 
 def _make_context():
