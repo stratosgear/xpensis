@@ -1,11 +1,13 @@
 # -*- coding: utf-8 -*-
 """The app module, containing the app factory function."""
+from elasticsearch_dsl.connections import connections
 from flask import Flask, render_template
 
-from flaskexpenses import public, user
+from flaskexpenses import public, user, transactions
 from flaskexpenses.assets import assets
 from flaskexpenses.extensions import bcrypt, cache, csrf_protect, db, debug_toolbar, login_manager, migrate
 from flaskexpenses.settings import ProdConfig
+from flaskexpenses.transactions.models import Trx
 
 
 def create_app(config_object=ProdConfig):
@@ -18,6 +20,10 @@ def create_app(config_object=ProdConfig):
     register_extensions(app)
     register_blueprints(app)
     register_errorhandlers(app)
+    
+    connections.create_connection(hosts=[config_object.ELASTICSEARCH], timeout=20)
+    Trx.init()
+    
     return app
 
 
@@ -38,6 +44,7 @@ def register_blueprints(app):
     """Register Flask blueprints."""
     app.register_blueprint(public.views.blueprint)
     app.register_blueprint(user.views.blueprint)
+    app.register_blueprint(transactions.views.blueprint)
     return None
 
 
