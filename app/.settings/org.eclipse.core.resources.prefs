@@ -1,0 +1,6 @@
+eclipse.preferences.version=1
+encoding//flaskexpenses/app.py=utf-8
+encoding//flaskexpenses/transactions/__init__.py=utf-8
+encoding//flaskexpenses/transactions/forms.py=utf-8
+encoding//flaskexpenses/transactions/models.py=utf-8
+encoding//flaskexpenses/transactions/views.py=utf-8

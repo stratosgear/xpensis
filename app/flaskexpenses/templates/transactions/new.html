@@ -1,0 +1,41 @@
+
+{% extends "layout.html" %}
+{% block js %}
+<script type="text/javascript">
+$(document).ready(function() {
+  $("#account").select2();
+});
+</script>
+{% endblock %}
+{% block content %}
+<script type="text/javascript">
+$(document).ready(function() {
+  $("#account").select2();
+});
+</script>
+<div class="container-narrow">
+  <h1>New Transaction</h1>
+    <br/>
+    <form id="registerForm" class="form form-register" method="POST" action="" role="form">
+            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+            <div class="form-group">
+                {{form.type.label}}
+                {{form.type(placeholder="Type", class_="form-control")}}
+            </div>
+             <div class="form-group">
+                {{form.account.label}}
+                {{form.account( class_="form-control")}}
+            </div>
+            <div class="form-group">
+                {{form.amount.label}}
+                {{form.amount(placeholder="Amount", class_="form-control")}}
+            </div>
+            <div class="form-group">
+                {{form.trx_date.label}}
+                {{form.trx_date(class_="form-control")}}
+            </div>
+            <p><input class="btn btn-default btn-submit" type="submit" value="Submit"></p>
+    </form>
+</div>
+{% endblock %}
+
