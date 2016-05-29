@@ -1,18 +1,17 @@
 
 {% extends "layout.html" %}
+
 {% block js %}
 <script type="text/javascript">
 $(document).ready(function() {
   $("#account").select2();
+  $('#trx_date').datetimepicker();
+  $('#trx_date').data('DateTimePicker').format("dddd, MMMM DD YYYY, HH:mm");
 });
 </script>
 {% endblock %}
+
 {% block content %}
-<script type="text/javascript">
-$(document).ready(function() {
-  $("#account").select2();
-});
-</script>
 <div class="container-narrow">
   <h1>New Transaction</h1>
     <br/>
@@ -30,9 +29,13 @@ $(document).ready(function() {
                 {{form.amount.label}}
                 {{form.amount(placeholder="Amount", class_="form-control")}}
             </div>
-            <div class="form-group">
-                {{form.trx_date.label}}
-                {{form.trx_date(class_="form-control")}}
+            <div class="container">
+                <div class="row">
+                    <div class='col-sm-6'>
+                        {{form.trx_date.label}}
+                        {{form.trx_date(class_="form-control")}}
+                    </div>
+                </div>
             </div>
             <p><input class="btn btn-default btn-submit" type="submit" value="Submit"></p>
     </form>

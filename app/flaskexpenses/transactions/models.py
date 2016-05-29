@@ -10,6 +10,7 @@ class Trx(DocType):
     account = String()
     created_at = Date()
     amount = Float()
+    trx_date = Date()
     
     class Meta:
         index = 'flexpenses'

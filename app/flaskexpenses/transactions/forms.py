@@ -21,7 +21,9 @@ class TransactionForm(Form):
     amount = DecimalField('Amount', places=2,
                         validators=[DataRequired(), ])
     
-    trx_date = DateTimeField()
+    # The date format has to mimic the moment.js format set in:
+    # templates/transactions/new.html
+    trx_date = DateTimeField(format="%A, %B %d %Y, %H:%M")
 
     def __init__(self, *args, **kwargs):
         """Create instance."""
