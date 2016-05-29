@@ -8,14 +8,14 @@ from elasticsearch_dsl import DocType, String, Date, Boolean, Float
 class Trx(DocType):
     type = String()
     account = String()
-    created_at = Date()
+    created_date = Date()
     amount = Float()
     trx_date = Date()
     
     class Meta:
         index = 'flexpenses'
 
-
     def save(self, ** kwargs):
-        self.created_at = datetime.now()
+        if not self.created_date:
+            self.created_date = datetime.now()
         return super(Trx, self).save(kwargs)
