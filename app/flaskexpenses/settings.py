@@ -22,9 +22,9 @@ class ProdConfig(Config):
 
     ENV = 'prod'
     DEBUG = False
-    SQLALCHEMY_DATABASE_URI = 'postgresql://localhost/example'  # TODO: Change me
+    SQLALCHEMY_DATABASE_URI = 'sqlite:///app-data/expenses.db'  # TODO: Change me
     DEBUG_TB_ENABLED = False  # Disable Debug toolbar
-
+    ELASTICSEARCH = 'elasticsearch'
 
 class DevConfig(Config):
     """Development configuration."""
@@ -33,18 +33,20 @@ class DevConfig(Config):
     DEBUG = True
     DB_NAME = 'dev.db'
     # Put the db file in project root
-    DB_PATH = os.path.join(Config.PROJECT_ROOT, DB_NAME)
+    DB_PATH = os.path.join(Config.PROJECT_ROOT, '..', 'data', 'app', DB_NAME)
     SQLALCHEMY_DATABASE_URI = 'sqlite:///{0}'.format(DB_PATH)
     DEBUG_TB_ENABLED = True
     ASSETS_DEBUG = True  # Don't bundle/minify static assets
     CACHE_TYPE = 'simple'  # Can be "memcached", "redis", etc.
-
+    ELASTICSEARCH = 'localhost'
 
 class TestConfig(Config):
     """Test configuration."""
 
     TESTING = True
     DEBUG = True
+    DB_NAME = 'test.db'
+    DB_PATH = os.path.join(Config.PROJECT_ROOT, '..', 'data', 'app', DB_NAME)
     SQLALCHEMY_DATABASE_URI = 'sqlite://'
     BCRYPT_LOG_ROUNDS = 4  # For faster tests; needs at least 4 to avoid "ValueError: Invalid rounds"
     WTF_CSRF_ENABLED = False  # Allows form testing
