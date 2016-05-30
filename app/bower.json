@@ -5,6 +5,7 @@
     "jQuery": "~2.1.3",
     "select2": "4.0.3",
     "bootstrap-select2": "2.0.0",
-    "eonasdan-bootstrap-datetimepicker": "latest"
+    "eonasdan-bootstrap-datetimepicker": "latest",
+    "admin-lte": "latest"
   }
 }

@@ -8,7 +8,9 @@ css = Bundle(
     'libs/font-awesome4/css/font-awesome.min.css',
     'libs/bootstrap-select2/select2-bootstrap.css',
     'libs/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css',
-    'css/style.css',
+    'libs/admin-lte/dist/css/AdminLTE.min.css',
+    'libs/admin-lte/dist/css/skins/skin-blue.min.css',
+    #'css/style.css',
     filters='cssmin',
     output='public/css/common.css'
 )
@@ -19,6 +21,7 @@ js = Bundle(
     'libs/select2/dist/js/select2.full.min.js',
     'libs/moment/min/moment.min.js',
     'libs/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js',
+    'libs/admin-lte/dist/js/app.min.js',
     'js/plugins.js',
     filters='jsmin',
     output='public/js/common.js'

@@ -11,34 +11,64 @@ $(document).ready(function() {
 </script>
 {% endblock %}
 
+{% block header %}New Transaction{% endblock %}
+{% block subheader %}{% endblock %}
+
 {% block content %}
-<div class="container-narrow">
-  <h1>New Transaction</h1>
-    <br/>
-    <form id="registerForm" class="form form-register" method="POST" action="" role="form">
+
+<div class="col-md-offset-2 col-md-6">
+          <!-- Horizontal Form -->
+          <div class="box box-info">
+            <div class="box-header with-border">
+              <h3 class="box-title">Transaction info</h3>
+            </div>
+            <!-- /.box-header -->
+            <!-- form start -->
+            <form id="TrxForm" class="form-horizontal" method="POST" action="" role="form">
             <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
-            <div class="form-group">
-                {{form.type.label}}
-                {{form.type(placeholder="Type", class_="form-control")}}
-            </div>
-             <div class="form-group">
-                {{form.account.label}}
-                {{form.account( class_="form-control")}}
-            </div>
-            <div class="form-group">
-                {{form.amount.label}}
-                {{form.amount(placeholder="Amount", class_="form-control")}}
-            </div>
-            <div class="container">
-                <div class="row">
-                    <div class='col-sm-6'>
-                        {{form.trx_date.label}}
-                        {{form.trx_date(class_="form-control")}}
-                    </div>
+              <div class="box-body">
+                <div class="form-group">
+                
+                  {{form.type.label(class_="col-sm-3 control-label")}}
+                  <div class="col-sm-6">
+                    {{form.type(placeholder="Type", class_="form-control")}}
+                  </div>
+                  
                 </div>
-            </div>
-            <p><input class="btn btn-default btn-submit" type="submit" value="Submit"></p>
-    </form>
-</div>
+                <div class="form-group">
+                
+                  {{form.account.label(class_="col-sm-3 control-label")}}
+                  <div class="col-sm-6">
+                    {{form.account(placeholder="Type", class_="form-control")}}
+                  </div>
+                  
+                </div>
+                <div class="form-group">
+                
+                  {{form.amount.label(class_="col-sm-3 control-label")}}
+                  <div class="col-sm-4">
+                    {{form.amount(placeholder="Type", class_="form-control")}}
+                  </div>
+                  
+                </div>
+                <div class="form-group">
+                
+                  {{form.trx_date.label(class_="col-sm-3 control-label")}}
+                  <div class="col-sm-6">
+                    {{form.trx_date(placeholder="Date", class_="form-control")}}
+                  </div>
+                  
+                </div>
+              </div>
+              <!-- /.box-body -->
+              <div class="box-footer">
+                <button class="btn btn-default">Cancel</button>
+                <button type="submit" class="btn btn-info pull-right">Submit</button>
+              </div>
+              <!-- /.box-footer -->
+            </form>
+          </div>
+          </div>
+          
 {% endblock %}
 

@@ -1,9 +1,10 @@
 
 {% extends "layout.html" %}
+
+{% block header %}Flask Expenses{% endblock %}
+{% block subheader %}Welcome{% endblock %}
+
 {% block content %}
-    <h1>Welcome {{ session.username }}</h1>
-    <h3>This is the members-only page.</h3>
-    <p><a class="btn btn-default" href="">Official website &raquo;</a></p>
     <p><a href="{{ url_for('transactions.new') }}" class="btn btn-primary btn-large">New Transaction &raquo;</a></p>
 {% endblock %}
 

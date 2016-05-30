@@ -12,7 +12,7 @@ class TransactionForm(Form):
     """Transaction form."""
 
     type = SelectField(
-        'Account',
+        'Transaction Type',
         choices=[('expense', 'Expense'), ('Income', 'Income')]
     )
     account = SelectField(
@@ -24,7 +24,7 @@ class TransactionForm(Form):
     
     # The date format has to mimic the moment.js format set in:
     # templates/transactions/new.html
-    trx_date = DateTimeField(format="%A, %B %d %Y, %H:%M")
+    trx_date = DateTimeField('Transaction Date', format="%A, %B %d %Y, %H:%M")
 
     def __init__(self, *args, **kwargs):
         """Create instance."""

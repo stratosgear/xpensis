@@ -9,19 +9,41 @@ $(document).ready(function() {
 </script>
 {% endblock %}
 
+{% block header %}Import{% endblock %}
+{% block subheader %}{% endblock %}
+
 {% block content %}
-<div class="container-narrow">
-  <h1>Bulk Import</h1>
-    <br/>
-    <p> Some instructions on the columns needed.</p>
-    <form id="importForm" class="form " method="POST" action="" role="form">
-            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
-            <div class="form-group">
-                {{form.data.label}}
-                {{form.data(placeholder="Type", class_="form-control",rows=30, cols=100)}}
+
+<div class="col-md-offset-2 col-md-6">
+          <!-- Horizontal Form -->
+          <div class="box box-info">
+            <div class="box-header with-border">
+              <h3 class="box-title">Bulk Import Transactions</h3>
+              <br/>
+                <p> Some instructions on the columns needed.</p>
             </div>
-            <p><input class="btn btn-default btn-submit" type="submit" value="Submit"></p>
-    </form>
-</div>
+            <!-- /.box-header -->
+            <!-- form start -->
+            <form id="ImportForm" class="form-horizontal" method="POST" action="" role="form">
+            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+              <div class="box-body">
+                <div class="form-group">
+                
+                  {{form.data.label(class_="col-sm-1 control-label")}}
+                  <div class="col-sm-11">
+                    {{form.data(placeholder="rows...", class_="form-control", rows=15)}}
+                  </div>
+                  
+                </div>
+              <!-- /.box-body -->
+              <div class="box-footer">
+                <button class="btn btn-default">Cancel</button>
+                <button type="submit" class="btn btn-info pull-right">Submit</button>
+              </div>
+              <!-- /.box-footer -->
+            </form>
+          </div>
+          </div>
+          
 {% endblock %}
 
