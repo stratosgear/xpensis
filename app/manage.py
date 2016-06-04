@@ -5,8 +5,6 @@ from glob import glob
 import os
 from subprocess import call
 
-from flask_admin import Admin
-from flask_admin.contrib.sqla import ModelView
 from flask_migrate import Migrate, MigrateCommand
 from flask_script import Command, Manager, Option, Server, Shell
 from flask_script.commands import Clean, ShowUrls

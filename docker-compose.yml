@@ -1,13 +1,16 @@
 elasticsearch:
-  build: elasticsearch/
+  #build: elasticsearch/
+  image: flaskexpenses_elasticsearch
   command: elasticsearch -Des.network.host=0.0.0.0
   ports:
     - "9200:9200"
     - "9300:9300"
   volumes:
     - ./data/es/:/usr/share/elasticsearch/data
+
 kibana:
-  build: kibana/
+  #build: kibana/
+  image: flaskexpenses_kibana
   volumes:
     - ./kibana/config/:/opt/kibana/config/
   ports:
@@ -15,12 +18,13 @@ kibana:
   links:
     - elasticsearch
 
-# app:
-#     build: app/
-#     volumes:
-#         - ./data/app/:/app-data
-#     ports:
-#         - "5544:5544"
-#     command: python2 /app/manage.py server
-#     links:
-#         - elasticsearch
+app:
+    #build: app/
+    image: flaskexpenses_app
+    volumes:
+        - ./data/app/:/app-data
+    ports:
+        - "9009:5544"
+    #command: python2 /app/manage.py server
+    links:
+        - elasticsearch
