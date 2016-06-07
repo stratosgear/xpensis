@@ -1,6 +1,43 @@
 
 {% extends "layout.html" %}
 
+{% block js %}
+
+{{ JSGlue.include() }}
+
+<script type="text/javascript">
+$(document).ready(function() {
+
+    var options = {
+        lines: {
+            show: true
+        },
+        points: {
+            show: true
+        },
+        xaxis: {
+            //tickDecimals: 0,
+        //tickSize: 1,
+            mode: "time"
+        }
+    };
+
+    function onDataReceived(series) {
+
+        $.plot("#daily-balance", [series], options);
+    }
+    
+    $.ajax({
+        url: Flask.url_for("transactions.ajax_daily_balance"),
+        type: "GET",
+        dataType: "json",
+        success: onDataReceived
+    });
+    
+});
+</script>
+{% endblock %}
+
 {% block header %}Flask Expenses{% endblock %}
 {% block subheader %}Welcome{% endblock %}
 
@@ -67,6 +104,18 @@
         </div>
         <!-- ./col -->
       </div>
+      
+<div class="box box-primary">
+            <div class="box-header with-border">
+              <i class="fa fa-bar-chart-o"></i>
+
+              <h3 class="box-title">Daily Balance</h3>
+            </div>
+            <div class="box-body">
+              <div id="daily-balance" style="height: 300px; padding: 0px; position: relative;"><canvas class="flot-base" style="direction: ltr; position: absolute; left: 0px; top: 0px; width: 1623px; height: 300px;" width="1623" height="300"></canvas><div class="flot-text" style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; font-size: smaller; color: rgb(84, 84, 84);"><div class="flot-x-axis flot-x1-axis xAxis x1Axis" style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; display: block;"><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 147px; top: 283px; left: 21px; text-align: center;">0</div><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 147px; top: 283px; left: 179px; text-align: center;">10</div><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 147px; top: 283px; left: 339px; text-align: center;">20</div><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 147px; top: 283px; left: 500px; text-align: center;">30</div><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 147px; top: 283px; left: 661px; text-align: center;">40</div><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 147px; top: 283px; left: 822px; text-align: center;">50</div><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 147px; top: 283px; left: 982px; text-align: center;">60</div><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 147px; top: 283px; left: 1143px; text-align: center;">70</div><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 147px; top: 283px; left: 1304px; text-align: center;">80</div><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 147px; top: 283px; left: 1464px; text-align: center;">90</div></div><div class="flot-y-axis flot-y1-axis yAxis y1Axis" style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; display: block;"><div class="flot-tick-label tickLabel" style="position: absolute; top: 270px; left: 13px; text-align: right;">0</div><div class="flot-tick-label tickLabel" style="position: absolute; top: 216px; left: 7px; text-align: right;">20</div><div class="flot-tick-label tickLabel" style="position: absolute; top: 162px; left: 7px; text-align: right;">40</div><div class="flot-tick-label tickLabel" style="position: absolute; top: 108px; left: 7px; text-align: right;">60</div><div class="flot-tick-label tickLabel" style="position: absolute; top: 54px; left: 7px; text-align: right;">80</div><div class="flot-tick-label tickLabel" style="position: absolute; top: 0px; left: 1px; text-align: right;">100</div></div></div><canvas class="flot-overlay" style="direction: ltr; position: absolute; left: 0px; top: 0px; width: 1623px; height: 300px;" width="1623" height="300"></canvas></div>
+            </div>
+            <!-- /.box-body-->
+          </div>      
     <p><a href="{{ url_for('transactions.new') }}" class="btn btn-primary btn-large">New Transaction &raquo;</a></p>
 {% endblock %}
 

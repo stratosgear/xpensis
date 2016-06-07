@@ -13,6 +13,8 @@ from flask.helpers import flash, url_for
 
 from flaskexpenses.transactions.forms import TransactionForm, BulkImportForm
 from flaskexpenses.transactions.models import Trx
+from flaskexpenses.transactions.utils import find_oldest_trx_date_and_sum, \
+    get_total_balance, get_totals_per_account_type
 from flaskexpenses.utils import flash_errors
 
 
@@ -23,114 +25,11 @@ blueprint = Blueprint('transactions', __name__, url_prefix='/transactions', stat
 def dashboard():
     """List members."""
     
-    client = Elasticsearch()
-    
-    response = client.search(index="flexpenses",
-               body={
-  "query": {
-    "filtered": {
-      "query": {
-        "query_string": {
-          "query": "*",
-          "analyze_wildcard": True
-        }
-      },
-      "filter": {
-        "bool": {
-          "must": [
-            {
-              "query": {
-                "query_string": {
-                  "analyze_wildcard": True,
-                  "query": "*"
-                }
-              }
-            },
-            {
-              "range": {
-                "trx_date": {
-                  "gte": 1307394631564,
-                  "lte": 1465247431564,
-                  "format": "epoch_millis"
-                }
-              }
-            }
-          ],
-          "must_not": []
-        }
-      }
-    }
-  },
-  "size": 0,
-  "aggs": {
-    "totbal": {
-      "sum": {
-        "field": "amount"
-      }
-    }
-  }
-})
-    
-    
-    total_balance = response['aggregations']['totbal']['value']
-    
-    
-    response = client.search(index="flexpenses",
-               body=
-        {
-  "query": {
-    "filtered": {
-      "query": {
-        "query_string": {
-          "query": "*",
-          "analyze_wildcard": True
-        }
-      },
-      "filter": {
-        "bool": {
-          "must": [
-            {
-              "range": {
-                "trx_date": {
-                  "gte": 1307398072443,
-                  "lte": 1465250872445,
-                  "format": "epoch_millis"
-                }
-              }
-            }
-          ],
-          "must_not": []
-        }
-      }
-    }
-  },
-  "size": 0,
-  "aggs": {
-    "accType": {
-      "terms": {
-        "field": "account_type",
-        "size": 5,
-        "order": {
-          "_term": "asc"
-        }
-      },
-      "aggs": {
-        "accSum": {
-          "sum": {
-            "field": "amount"
-          }
-        }
-      }
-    }
-  }
-})
-    
-    buckets = response['aggregations']['accType']['buckets']
-    total_cash = buckets[0]['accSum']['value']
-    total_cc = buckets[1]['accSum']['value']
-    total_bank = buckets[2]['accSum']['value']
-    
-    return render_template('transactions/dashboard.html', 
+
+    total_balance = get_total_balance()
+    total_cash, total_cc, total_bank = get_totals_per_account_type()
+  
+    return render_template('transactions/dashboard.html',
                            total_balance=total_balance,
                            total_cash=total_cash,
                            total_cc=total_cc,

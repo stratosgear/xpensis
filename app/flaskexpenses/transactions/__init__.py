@@ -2,6 +2,5 @@
 """The user module."""
 
 
-from . import views  # noqa
-
+from . import views, ajax  # noqa
 
