@@ -4,6 +4,9 @@ import StringIO
 import csv
 from datetime import datetime
 
+from elasticsearch.client import Elasticsearch
+from elasticsearch_dsl.query import Q
+from elasticsearch_dsl.search import Search
 from flask import Blueprint, render_template, redirect
 from flask.globals import request
 from flask.helpers import flash, url_for
@@ -17,9 +20,121 @@ blueprint = Blueprint('transactions', __name__, url_prefix='/transactions', stat
 
 
 @blueprint.route('/')
-def home():
+def dashboard():
     """List members."""
-    return render_template('transactions/home.html')
+    
+    client = Elasticsearch()
+    
+    response = client.search(index="flexpenses",
+               body={
+  "query": {
+    "filtered": {
+      "query": {
+        "query_string": {
+          "query": "*",
+          "analyze_wildcard": True
+        }
+      },
+      "filter": {
+        "bool": {
+          "must": [
+            {
+              "query": {
+                "query_string": {
+                  "analyze_wildcard": True,
+                  "query": "*"
+                }
+              }
+            },
+            {
+              "range": {
+                "trx_date": {
+                  "gte": 1307394631564,
+                  "lte": 1465247431564,
+                  "format": "epoch_millis"
+                }
+              }
+            }
+          ],
+          "must_not": []
+        }
+      }
+    }
+  },
+  "size": 0,
+  "aggs": {
+    "totbal": {
+      "sum": {
+        "field": "amount"
+      }
+    }
+  }
+})
+    
+    
+    total_balance = response['aggregations']['totbal']['value']
+    
+    
+    response = client.search(index="flexpenses",
+               body=
+        {
+  "query": {
+    "filtered": {
+      "query": {
+        "query_string": {
+          "query": "*",
+          "analyze_wildcard": True
+        }
+      },
+      "filter": {
+        "bool": {
+          "must": [
+            {
+              "range": {
+                "trx_date": {
+                  "gte": 1307398072443,
+                  "lte": 1465250872445,
+                  "format": "epoch_millis"
+                }
+              }
+            }
+          ],
+          "must_not": []
+        }
+      }
+    }
+  },
+  "size": 0,
+  "aggs": {
+    "accType": {
+      "terms": {
+        "field": "account_type",
+        "size": 5,
+        "order": {
+          "_term": "asc"
+        }
+      },
+      "aggs": {
+        "accSum": {
+          "sum": {
+            "field": "amount"
+          }
+        }
+      }
+    }
+  }
+})
+    
+    buckets = response['aggregations']['accType']['buckets']
+    total_cash = buckets[0]['accSum']['value']
+    total_cc = buckets[1]['accSum']['value']
+    total_bank = buckets[2]['accSum']['value']
+    
+    return render_template('transactions/dashboard.html', 
+                           total_balance=total_balance,
+                           total_cash=total_cash,
+                           total_cc=total_cc,
+                           total_bank=total_bank)
 
 
 @blueprint.route('/new', methods=['GET', 'POST'])
@@ -47,7 +162,7 @@ def graphs():
     """List members."""
     return render_template('transactions/kibana.html')
 
-@blueprint.route('/import',  methods=['GET', 'POST'])
+@blueprint.route('/import', methods=['GET', 'POST'])
 def bulk_import():
     form = BulkImportForm(request.form, csrf_enabled=False)
     if form.validate_on_submit():

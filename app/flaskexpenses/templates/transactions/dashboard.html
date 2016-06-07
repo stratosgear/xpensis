@@ -5,6 +5,68 @@
 {% block subheader %}Welcome{% endblock %}
 
 {% block content %}
+<div class="row">
+        <div class="col-lg-3 col-xs-6">
+          <!-- small box -->
+          <div class="small-box bg-aqua">
+            <div class="inner">
+              <h3>{{ "{:,.2f}".format(total_balance) }}</h3>
+
+              <p>Total Balance</p>
+            </div>
+            <div class="icon">
+              <i class="fa fa-eur"></i>
+            </div>
+            <a href="#" class="small-box-footer">More info <i class="fa fa-eur"></i></a>
+          </div>
+        </div>
+        <!-- ./col -->
+        <div class="col-lg-3 col-xs-6">
+          <!-- small box -->
+          <div class="small-box bg-green">
+            <div class="inner">
+              <h3>{{ "{:,.2f}".format(total_cash) }}</h3>
+
+              <p>Total Cash
+            </div>
+            <div class="icon">
+              <i class="fa fa-money"></i>
+            </div>
+            <a href="#" class="small-box-footer">More info <i class="fa fa-money"></i></a>
+          </div>
+        </div>
+        <!-- ./col -->
+        <div class="col-lg-3 col-xs-6">
+          <!-- small box -->
+          <div class="small-box bg-yellow">
+            <div class="inner">
+              <h3>{{ "{:,.2f}".format(total_bank) }}</h3>
+
+              <p>Total Bank Balance </p>
+            </div>
+            <div class="icon">
+              <i class="fa fa-bank"></i>
+            </div>
+            <a href="#" class="small-box-footer">More info <i class="fa fa-bank"></i></a>
+          </div>
+        </div>
+        <!-- ./col -->
+        <div class="col-lg-3 col-xs-6">
+          <!-- small box -->
+          <div class="small-box bg-red">
+            <div class="inner">
+              <h3>{{ "{:,.2f}".format(total_cc) }}</h3>
+
+              <p>Total Credit Card Charges</p>
+            </div>
+            <div class="icon">
+              <i class="fa fa-credit-card"></i>
+            </div>
+            <a href="#" class="small-box-footer">More info <i class="fa fa-credit-card"></i></a>
+          </div>
+        </div>
+        <!-- ./col -->
+      </div>
     <p><a href="{{ url_for('transactions.new') }}" class="btn btn-primary btn-large">New Transaction &raquo;</a></p>
 {% endblock %}
 
