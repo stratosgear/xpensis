@@ -43,4 +43,6 @@ Flask-DebugToolbar==0.10.0
 # Flask Admin
 #Flask-Admin==1.4.0
 
+Flask-JSGlue==0.3
+
 elasticsearch-dsl>=2.0.0,<3.0.0

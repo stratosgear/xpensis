@@ -6,6 +6,7 @@
     "select2": "4.0.3",
     "select2-bootstrap-theme": "latest",
     "eonasdan-bootstrap-datetimepicker": "latest",
-    "admin-lte": "latest"
+    "admin-lte": "latest",
+    "flot": "latest"
   }
 }

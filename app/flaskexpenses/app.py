@@ -2,6 +2,7 @@
 """The app module, containing the app factory function."""
 from elasticsearch_dsl.connections import connections
 from flask import Flask, render_template
+from flask_jsglue import JSGlue
 
 from flaskexpenses import public, user, transactions
 from flaskexpenses.assets import assets
@@ -37,6 +38,10 @@ def register_extensions(app):
     login_manager.init_app(app)
     debug_toolbar.init_app(app)
     migrate.init_app(app, db)
+    
+    jsglue = JSGlue()
+    jsglue.init_app(app)
+    
     return None
 
 

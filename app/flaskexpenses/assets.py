@@ -22,6 +22,8 @@ js = Bundle(
     'libs/moment/min/moment.min.js',
     'libs/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js',
     'libs/admin-lte/dist/js/app.min.js',
+    'libs/flot/jquery.flot.js',
+    'libs/flot/jquery.flot.time.js',
     'js/plugins.js',
     filters='jsmin',
     output='public/js/common.js'
