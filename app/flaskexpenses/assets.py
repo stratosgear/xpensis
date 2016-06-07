@@ -6,7 +6,7 @@ css = Bundle(
     'libs/bootstrap/dist/css/bootstrap.css',
     'libs/select2/dist/css/select2.min.css',
     'libs/font-awesome4/css/font-awesome.min.css',
-    'libs/bootstrap-select2/select2-bootstrap.css',
+    'libs/select2-bootstrap-theme/dist/select2-bootstrap.min.css',
     'libs/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css',
     'libs/admin-lte/dist/css/AdminLTE.min.css',
     'libs/admin-lte/dist/css/skins/skin-blue.min.css',
