@@ -18,13 +18,13 @@ kibana:
   links:
     - elasticsearch
 
-app:
-    #build: app/
-    image: flaskexpenses_app
-    volumes:
-        - ./data/app/:/app-data
-    ports:
-        - "9009:5544"
-    #command: python2 /app/manage.py server
-    links:
-        - elasticsearch
+#app:
+#    #build: app/
+#    image: flaskexpenses_app
+#    volumes:
+#        - ./data/app/:/app-data
+#    ports:
+#        - "9009:5544"
+#    #command: python2 /app/manage.py server
+#    links:
+#        - elasticsearch
